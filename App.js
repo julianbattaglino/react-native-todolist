@@ -44,6 +44,7 @@ const App = () => {
           value={newTodo}
           onChangeText={setNewTodo}
           onSubmitEditing={addTodo}
+          placeholder="Enter your todo here..."
         />
         <Button disabled={!newTodo} title='Add' color='#333' onPress={addTodo} />
       </View>
