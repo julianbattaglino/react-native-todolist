@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
 const App = () => {
+
+  {/* Initialize the app with 3 todo items */ }
   const [todos, setTodos] = useState([
     { text: 'Learn React Native like a pro', key: '1', completed: false },
     { text: 'Build a to-do app', key: '2', completed: true },
@@ -10,11 +12,14 @@ const App = () => {
 
   const [newTodo, setNewTodo] = useState('');
 
+
+  {/* Function to add new todo */ }
   const addTodo = () => {
     setTodos([...todos, { text: newTodo, key: Date.now(), completed: false }]);
     setNewTodo('');
   };
 
+  {/* Function to complete todo */ }
   const completeTodo = (key) => {
     setTodos(
       todos.map((todo) => {
@@ -26,6 +31,7 @@ const App = () => {
     );
   };
 
+  {/* Function to delete todo */ }
   const deleteTodo = (key) => {
     setTodos(todos.filter((todo) => todo.key !== key));
   };
@@ -73,13 +79,14 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   item: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     padding: 16,
     marginTop: 16,
-    borderColor: '#bbb',
-    borderWidth: 1,
-    borderRadius: 10,
+    borderColor: '#857E7B',
+    borderWidth: 2,
+    borderRadius: 6,
+    marginHorizontal: 15,
   },
   textTodo: {
     fontSize: 16,
@@ -111,13 +118,13 @@ const styles = StyleSheet.create({
   },
   completed: {
     textDecorationLine: 'line-through',
-    color: '#bbb',
+    color: '#417656',
   },
   delete: {
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 10,
-    color: 'red',
+    color: '#D01E11',
   },
 });
 
